@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+
+<body>
+	<canvas id="canvas" style="border: 1px #ddd solid;display: block;margin:0 auto"></canvas>
+
+	<script>
+
+		window.onload = function(){
+			var canvas = document.getElementById('canvas');
+
+			canvas.width = 1024;
+			canvas.height = 768;
+
+			if(canvas.getContext('2d')){
+				var context = canvas.getContext('2d');
+
+				// one
+
+					// 直线状态设置
+					context.beginPath();
+
+						context.moveTo(100,100);
+						context.lineTo(700,700);
+						context.lineTo(100,700);
+						context.lineTo(100,100);
+
+					context.closePath();
+
+					context.lineWidth = 5;
+
+					// 绘制线 stroke
+					context.strokeStyle="blue"; 
+					context.stroke();
+
+					// 填充色 fill
+					context.fillStyle = "rgb(2,100,30)";
+					context.fill();
+
+			}else{
+				alert('当前游览器不支持Canvas，请更换游览器后再试！');
+			}
+		}
+
+/*总结
+
+	1.canvas的三个方法 width 、height、context
+
+		context的方法
+			moveTo  画笔起始位置
+			lineTo  经过点
+			lineWidth  线宽
+
+			strokeStyle 画笔色
+			stroke   绘制
+
+			fillStyle 填充色
+			fill  填充
+
+	2.绘制多个图形的时候要使用
+		context.beginPath
+		context.closePath
+
+*/
+	</script>
+</body>
+</html>
